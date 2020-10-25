@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :events
+  get '/calendar', to: 'calendar#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-  root to: "patients#index"
+  root to: "calendar#index"
   resources :patients
   # root to: "home#index" HomepageName to create
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
