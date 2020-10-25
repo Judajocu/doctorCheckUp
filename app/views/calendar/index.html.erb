@@ -1,0 +1,14 @@
+<h1>Calendar#index</h1>
+<%= week_calendar number_of_weeks: 1, events: @events do |date, events| %>
+  <%= date %>
+  <% 0.upto(23).each do |hour| %>
+    <div>
+        <%= Time.parse("#{hour}:00").strftime("%l %P") %>
+    </div>
+    <% events.each do |event| %>
+        <div>
+        <%= event.name %>
+        </div>
+    <% end %>
+  <% end %>
+<% end %>
