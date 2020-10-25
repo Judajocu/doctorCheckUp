@@ -20,25 +20,28 @@ ActiveRecord::Schema.define(version: 2020_10_25_141255) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "patients", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "national_id"
-    t.string "email"
-    t.string "address"
-    t.string "phone"
-    t.string "cellphone"
-    t.string "gender"
-    t.string "city"
-    t.string "country"
+    t.text "first_name"
+    t.text "last_name"
+    t.text "national_id"
+    t.text "email"
+    t.text "address"
+    t.text "phone"
+    t.text "cellphone"
+    t.text "gender"
+    t.text "city"
+    t.text "country"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.text "email", default: "", null: false
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
